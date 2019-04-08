@@ -1,0 +1,47 @@
+<html>
+  <% include ./partials/header %>
+
+  <body>
+    <% include ./partials/navbar %>
+    <div class="container mt-5 ">
+      <div class="d-flex justify-content-between">
+        <div id="world-content" class=" d-flex flex-column mr-4">
+          <div><span class="badge badge-warning"><h3><%= tag %></h3></div></span>
+          <% results.forEach(function(result) { %>
+          <div
+            class="card mb-3 py-4"
+            style="max-width: 70rem; border:none;border-bottom: 1px solid silver"
+          >
+            <div class="row no-gutters">
+              <div class="col-md-3 p-1">
+                <img
+                  src="/uploads/<%=result.photo%>"
+                  class="card-img"
+                  alt="..."
+                  style="height:160px"
+                />
+              </div>
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h3>
+                    <%=result.header%>
+                  </h3>
+                  <p> <%=result.desc.substring(0,70)%></p>
+                  <a
+                    href="/article/<%=result.id%>"
+                    class="stretched-link text-primary"
+                    >Go Through Article</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="sidebar">
+          <% include ./partials/sidebar %>
+        </div>
+      </div>
+    </div>
+    <% include ./partials/footer%>
+  </body>
+</html>

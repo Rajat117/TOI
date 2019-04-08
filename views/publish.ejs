@@ -1,0 +1,67 @@
+<html>
+  <% include ./partials/header %>
+
+  <body>
+    <% include ./partials/navbar %>
+    <div class="container mt-5">
+      <form action="/publish" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address</label>
+          <input
+            name="email"
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Article Heading</label>
+          <textarea
+            name="header"
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="2"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Article</label>
+          <textarea
+            name="body"
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="8"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <select class="custom-select" name="tag">
+            <option selected>Choose Tag</option>
+            <option value="World">World</option>
+            <option value="India">India</option>
+            <option value="Tech">Tech</option>
+            <option value="Sports">Sports</option>
+          </select>
+        </div>
+        <div class="custom-file mb-5">
+          <input
+            name="image"
+            type="file"
+            class="custom-file-input"
+            id="validatedCustomFile"
+            required
+          />
+          <label class="custom-file-label" for="validatedCustomFile"
+            >Choose file..</label
+          >
+        </div>
+        <div class="form-group">
+          <input
+            type="submit"
+            value="Publish"
+            class="btn btn-block btn-lg btn-secondary "
+          />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

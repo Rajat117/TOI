@@ -1,0 +1,153 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample Authentication Server APIs documentation",
+    "version": "1.0.0",
+    "title": "Authentication Documentation",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {},
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localhost:8000",
+  "tags": [
+    {
+      "name": "User",
+      "description": "Authentication of User",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "schemes": ["http"],
+  "paths": {
+    "/login": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Login user to your website",
+        "description": "",
+        "operationId": "authenticateUser",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Parameter",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfuly Logged in",
+            "schema": {
+              "$ref": "#/definitions/loggedInUser"
+            }
+          },
+          "405": {
+            "description": "Invalid Credentials"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": ["write:pets", "read:pets"]
+          }
+        ]
+      }
+    },
+    "/register": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Register user to the website",
+        "description": "",
+        "operationId": "addUser",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/registered"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfuly Registered",
+            "schema": {
+              "$ref": "#/definitions/loggedInUser"
+            }
+          },
+          "405": {
+            "description": "Please Provide Complete Information"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": ["write:pets", "read:pets"]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "loggedInUser": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "registered": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "pwd1": {
+          "type": "string"
+        },
+        "pwd2": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "checkbox1": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

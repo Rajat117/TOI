@@ -1,0 +1,175 @@
+<html>
+  <% include ./partials/header %>
+
+  <body>
+    <% include ./partials/navbar %>
+    <div class="container mt-5">
+      <div class="d-flex justify-content-between">
+        <div id="article" class="mr-5 text-justify">
+          <h5 class="card-title mb-5">
+            <span class="badge badge-warning"><%=result.tag%></span>
+          </h5>
+          <article>
+            <h1>
+              <%=result.header%>
+            </h1>
+            <img
+              src="/uploads/<%=result.photo%>"
+              style="max-width:100%"
+              class="mt-3"
+            />
+            <div class="my-3">
+              <span class="mr-3 "
+                >By
+                <a
+                  class="text-primary"
+                  href="https://ld-wp.template-help.com/wordpress_58404_v4/author/admin/"
+                  ><%=result.author%>
+                </a></span
+              >
+              <span class="mr-3"
+                ><i class="fas fa-clock"></i>
+                <a
+                  class="text-primary"
+                  href="https://ld-wp.template-help.com/wordpress_58404_v4/author/admin/"
+                >
+                  <%=result.createdAt.toString().substring(0,16)%>
+                </a></span
+              >
+              <span class="mr-3"
+                ><i class="far fa-comment-alt"></i>
+
+                <a
+                  class="text-primary"
+                  href="https://ld-wp.template-help.com/wordpress_58404_v4/author/admin/"
+                  ><%=comments.length%></a
+                ></span
+              >
+            </div>
+            <p>
+              <%=result.desc%>
+            </p>
+          </article>
+          <div
+            class="card mb-5 py-4 bg-dark"
+            style="max-width: 70rem;border-radius:0px"
+          >
+            <div class="row no-gutters">
+              <div class="col-md-4 px-4">
+                <img
+                  src="/uploads/avatar.jpg"
+                  class="card-img"
+                  alt="..."
+                  style="height:160px"
+                />
+              </div>
+              <div class="col-md-8 pl-4 align-middle">
+                <div class="card-bodyt">
+                  <h3 class="text-white">
+                    Written By: <%=result.author%>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div id="comments">
+            <div class="d-flex mb-2">
+              <div style="flex:1">
+                <h1>Comments</h1>
+              </div>
+              <div class="mt-2" style="flex:2;">
+                <hr />
+              </div>
+            </div>
+            <% comments.forEach(function(comment) { %>
+            <div
+              class="card mb-5 pb-3"
+              style="max-width: 70rem;border:none;border-bottom: 1px solid silver"
+            >
+              <div class="row no-gutters">
+                <div class="col-md-2">
+                  <img
+                    src="/uploads/avatar.jpg"
+                    class="card-img"
+                    alt="..."
+                    style="height:7rem"
+                  />
+                </div>
+                <div class="col-md-10 pl-4">
+                  <div class="card-body">
+                    <p>
+                      By <a class="text-primary"><%=comment.name%></a>
+                      <button
+                        type="button"
+                        class="border-0"
+                        style="float:right"
+                        onclick="deleteComment('<%=comment.id%>')"
+                      >
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </p>
+
+                    <p class="text-secondary">
+                      <%= comment.desc %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% }); %>
+          </div>
+          <div id="comments-form">
+            <div class="d-flex mb-2">
+              <div style="flex:1">
+                <h1>Leave A Reply</h1>
+              </div>
+              <div class="mt-2" style="flex:1;">
+                <hr />
+              </div>
+            </div>
+            <form class="p-2 " action="/comment/<%=result.id%>" method="POST">
+              <div class="form-group row">
+                <input
+                  type="text"
+                  class="form-control bg-light"
+                  name="name"
+                  placeholder="Your Name*"
+                />
+              </div>
+
+              <div class="form-group row">
+                <input
+                  type="email"
+                  class="form-control  bg-light"
+                  name="email"
+                  placeholder="Your Email*"
+                />
+              </div>
+              <div class="form-group row">
+                <textarea
+                  name="body"
+                  class="form-control  bg-light"
+                  id="exampleFormControlTextarea1"
+                  placeholder="Your Comment*"
+                  rows="8"
+                ></textarea>
+              </div>
+              <div class="form-group row">
+                <input
+                  type="submit"
+                  value="Submit"
+                  class="btn btn-block btn-secondary"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="sidebar">
+          <% include ./partials/sidebar %>
+        </div>
+      </div>
+    </div>
+    <% include ./partials/footer %>
+  </body>
+</html>

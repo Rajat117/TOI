@@ -1,0 +1,98 @@
+.header {
+  padding: 0px;
+  background-color: black;
+}
+.upper-header {
+  height: 30px;
+  border-bottom: 1px solid white;
+  color: white;
+}
+.title {
+  padding: 15px;
+  color: white;
+}
+.upper-header .image {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.upper-header a:active,
+a:link,
+a:hover,
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+.menu {
+  background-color: red;
+  color: white;
+}
+
+.menu .navbar {
+  height: 25px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.center-div {
+  top: 50%;
+}
+.fb-twit-btn {
+  border-radius: 15px;
+}
+.login-body {
+  background: #f7f7f7;
+}
+.btn-fb {
+  border-radius: 0px;
+  color: white;
+  background: #2543b8;
+}
+.btn-ggl {
+  background: #ea4335;
+  color: white;
+  border-radius: 0px;
+}
+.input-email {
+  border: none;
+  border-bottom: 2px solid red;
+}
+.box {
+  background-color: black;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+
+  margin-left: -10px; /* -1/2 width */
+  margin-top: -10px; /* -1/2 height */
+}
+.form-control {
+  border: none;
+  border-radius: 0px;
+  border-bottom: 2px solid black;
+}
+.global {
+  background-image: url("https://ld-wp.template-help.com/wordpress_58404_v4/wp-content/uploads/2016/02/04.10.14_Obama-1024x682.jpg");
+  height: 460px;
+  width: 500px;
+}
+.sports {
+  height: 225px;
+  background-image: url("https://ld-wp.template-help.com/wordpress_58404_v4/wp-content/uploads/2016/02/04.10.14_Obama-1024x682.jpg");
+}
+.media {
+  height: 225px;
+  background-image: url("https://ld-wp.template-help.com/wordpress_58404_v4/wp-content/uploads/2016/02/04.10.14_Obama-1024x682.jpg");
+}
+.business {
+  height: 225px;
+  background-image: url("https://ld-wp.template-help.com/wordpress_58404_v4/wp-content/uploads/2016/02/04.10.14_Obama-1024x682.jpg");
+}
+.news {
+  height: 225px;
+  background-image: url("https://ld-wp.template-help.com/wordpress_58404_v4/wp-content/uploads/2016/02/04.10.14_Obama-1024x682.jpg");
+}
+#section div {
+  flex: 1;
+}
