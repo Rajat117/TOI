@@ -1,0 +1,1 @@
+var featureFlags = {googleAnalyticsEnabled : true,v2CodeEnabled : false,editDeveloperPortalApplicationsEnabled : true,previewEnabled : false,showAccountApplicationRedesign : false,submitEmailsToEloqua : false,sentrySampleRate : 1.0};
